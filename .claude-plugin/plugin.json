@@ -17,5 +17,9 @@
     "reports",
     "cad",
     "spreadsheets"
-  ]
+  ],
+  "documentationUrl": "https://altodocs.io/docs#section-mcp",
+  "supportUrl": "https://altodocs.io/docs",
+  "privacyPolicyUrl": "https://altodocs.io/privacy",
+  "termsOfServiceUrl": "https://altodocs.io/terms"
 }
