@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "altodocs": {
+      "type": "http",
+      "url": "https://app.altodocs.io/mcp"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "altodocs",
+  "displayName": "AltoDocs",
+  "version": "1.2.0",
+  "description": "Create engineering documents and editable MathCanvas calculations from chat, with workflows for reports, markup, CAD, spreadsheets and projects.",
+  "author": {
+    "name": "AltoDocs",
+    "url": "https://altodocs.io"
+  },
+  "homepage": "https://altodocs.io/integrations",
+  "repository": "https://github.com/AltoDocs/altodocs-plugin",
+  "license": "LicenseRef-AltoDocs-Plugin",
+  "keywords": [
+    "engineering",
+    "mathcanvas",
+    "calculations",
+    "reports",
+    "cad",
+    "spreadsheets"
+  ]
+}
