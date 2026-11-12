@@ -28,9 +28,9 @@ formula; it does not prove that the formula applies to a particular design:
 ```json
 {
   "expressions": [
-    {"key": "q", "latex": "q := 12\\operatorname{kN}/\\operatorname{m}"},
+    {"key": "q", "latex": "q := 12\\frac{\\operatorname{kN}}{\\operatorname{m}}"},
     {"key": "L", "latex": "L := 6\\operatorname{m}"},
-    {"key": "M", "latex": "M := q \\cdot L^2 / 8", "unit": "kN m"}
+    {"key": "M", "latex": "M := \\frac{q \\cdot L^2}{8}", "unit": "kN m"}
   ]
 }
 ```

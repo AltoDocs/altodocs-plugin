@@ -90,6 +90,39 @@ expressions. Read back the saved region bounds and order after layout changes;
 re-evaluate to detect a changed definition order. A headless tidy operation does
 not prove pixel-perfect rendering. Say when visual review has not been done.
 
+## Native Python sketches and notebooks
+
+When the host exposes `add_python_cell`, `update_python_cell` and
+`delete_python_cell`, use them for real on-canvas Python notebooks. A Python
+cell is a separate native layer, never a `type: python` math region. Discover
+its layer cell ID and notebook subcell IDs in `read_worksheet`. The atomic
+`edit_worksheet` actions are `python_add`, `python_update` and `python_delete`.
+
+Read the actual upstream variable definitions first. The Python cell's
+horizontal centreline divides inputs above from consumers below. The app injects
+finite numeric globals in **SI base units**, independently of display settings:
+250 mm becomes `b = 0.25`, MPa becomes Pa. Strip the leading engine underscore
+from read-back names; `_d__prime_s` becomes `d__prime_s`. Convert explicitly for
+plot labels. Do not freeze current input values into the drawing code.
+
+Supply only authored title, notebook `cells: [{code}]`, position, dimensions,
+view mode and optional numeric result bindings. On update, reuse read notebook
+subcell IDs; omitted IDs preserve existing IDs by position. Never supply plots,
+printed outputs, execution counters, input snapshots or published values.
+Source/scope/result-binding changes invalidate cached output. The browser's
+normal Python runtime runs the cell and recomputes it on upstream input changes;
+the connector only saves source and does not execute Python. A saved cell alone
+is not proof of successful execution or visual output. Keep plotting helpers
+local when they should not publish extra numeric variables to math below.
+
+If these tools are absent, report the exact missing capability. Do not replace
+the requested Python sketch with extra text or a static image and call it done.
+Saved worksheet evaluation includes choice and program regions. Multi-column
+choices return per-column results with `regionId` and `columnId`; use
+`select_choice` with read region/row IDs to change a selection without rewriting
+the table. Python output and external worksheet scopes remain outside headless
+worksheet evaluation.
+
 ## Continue on the same file
 
 Resolve the existing ID from this conversation or `list_documents` and

@@ -1,7 +1,7 @@
 {
   "name": "altodocs",
   "displayName": "AltoDocs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Create engineering documents and editable MathCanvas calculations from chat, with workflows for reports, markup, CAD, spreadsheets and projects.",
   "author": {
     "name": "AltoDocs",

@@ -1,6 +1,6 @@
 {
   "endpoint": "https://app.altodocs.io/mcp",
-  "toolCount": 116,
+  "toolCount": 137,
   "scopes": [
     "documents:read",
     "documents:write",
@@ -22,12 +22,27 @@
       "delete_region",
       "duplicate_region",
       "rename_variable",
-      "tidy_layout"
+      "tidy_layout",
+      "add_region",
+      "set_worksheet_settings",
+      "select_choice",
+      "add_python_cell",
+      "update_python_cell",
+      "delete_python_cell"
     ],
     "altodocs-engineering-report": [
       "create_document",
       "read_document",
-      "edit_document"
+      "edit_document",
+      "append_document_blocks",
+      "insert_document_block",
+      "update_document_text",
+      "delete_document_block",
+      "move_document_block",
+      "update_document_table_cell",
+      "update_document_drawing",
+      "update_document_beam",
+      "update_document_worksheet_expression"
     ],
     "altodocs-markup": [
       "create_document",
@@ -39,7 +54,13 @@
       "create_spreadsheet",
       "list_spreadsheet_sheets",
       "read_spreadsheet",
-      "edit_spreadsheet"
+      "edit_spreadsheet",
+      "set_spreadsheet_cells",
+      "clear_spreadsheet_range",
+      "add_spreadsheet_sheet",
+      "rename_spreadsheet_sheet",
+      "duplicate_spreadsheet_sheet",
+      "delete_spreadsheet_sheet"
     ],
     "altodocs-cad": [
       "create_cad",
@@ -148,11 +169,27 @@
       "scope": "documents:write",
       "requires": []
     },
+    "add_python_cell": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "add_region": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "add_spreadsheet_sheet": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "add_text": {
       "scope": "documents:write",
       "requires": []
     },
     "add_variable": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "append_document_blocks": {
       "scope": "documents:write",
       "requires": []
     },
@@ -460,6 +497,10 @@
       "scope": "documents:write",
       "requires": []
     },
+    "clear_spreadsheet_range": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "create_cad": {
       "scope": "documents:write",
       "requires": []
@@ -488,7 +529,19 @@
       "scope": "documents:write",
       "requires": []
     },
+    "delete_document_block": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "delete_python_cell": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "delete_region": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "delete_spreadsheet_sheet": {
       "scope": "documents:write",
       "requires": []
     },
@@ -504,6 +557,10 @@
       ]
     },
     "duplicate_region": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "duplicate_spreadsheet_sheet": {
       "scope": "documents:write",
       "requires": []
     },
@@ -537,6 +594,10 @@
       "scope": "documents:read",
       "requires": []
     },
+    "insert_document_block": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "list_documents": {
       "scope": "documents:read",
       "requires": []
@@ -558,6 +619,10 @@
       "requires": []
     },
     "move_document": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "move_document_block": {
       "scope": "documents:write",
       "requires": []
     },
@@ -593,6 +658,10 @@
       "scope": "documents:write",
       "requires": []
     },
+    "rename_spreadsheet_sheet": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "rename_variable": {
       "scope": "documents:write",
       "requires": []
@@ -601,11 +670,47 @@
       "scope": "documents:write",
       "requires": []
     },
+    "select_choice": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "set_spreadsheet_cells": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "set_worksheet_settings": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "tidy_layout": {
       "scope": "documents:write",
       "requires": []
     },
     "trash_document": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "update_document_beam": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "update_document_drawing": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "update_document_table_cell": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "update_document_text": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "update_document_worksheet_expression": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "update_python_cell": {
       "scope": "documents:write",
       "requires": []
     },
