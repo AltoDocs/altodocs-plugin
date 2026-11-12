@@ -51,7 +51,7 @@ An installed skill does not make a missing tool available. Check which tools
 Claude exposes before testing standalone sheets or CAD. Directory review,
 server capabilities and individual connection permissions are separate. The
 connector's directory review currently captures the original seven tools;
-the expanded native server has 116 scoped tools. Do not infer that every one
+the expanded native server has 137 scoped tools. Do not infer that every one
 is available through a particular directory installation.
 
 ## Limits and verification
@@ -75,11 +75,11 @@ Upload plugin. A directory listing becomes installable only after Anthropic's
 review and publication. Workplaces may require an Owner to add the connector
 or approve the plugin before members connect their own accounts.
 
-Documentation: https://altodocs.io/docs#section-mcp
-Setup: https://altodocs.io/integrations
-Privacy: https://altodocs.io/privacy
-Terms: https://altodocs.io/terms
-Support: contact@altodocs.io
+- [Documentation](https://altodocs.io/docs#section-mcp)
+- [Setup](https://altodocs.io/integrations)
+- [Privacy policy](https://altodocs.io/privacy)
+- [Terms of service](https://altodocs.io/terms)
+- [Support resources](https://altodocs.io/docs) or email contact@altodocs.io
 
 Only the selected tool arguments and requested native content pass through
 the connector; it does not request complete conversations or memories.

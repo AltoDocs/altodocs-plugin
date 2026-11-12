@@ -1,7 +1,7 @@
 {
   "name": "altodocs",
   "displayName": "AltoDocs",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Create engineering documents and editable MathCanvas calculations from chat, with workflows for reports, markup, CAD, spreadsheets and projects.",
   "author": {
     "name": "AltoDocs",
@@ -17,9 +17,5 @@
     "reports",
     "cad",
     "spreadsheets"
-  ],
-  "documentationUrl": "https://altodocs.io/docs#section-mcp",
-  "supportUrl": "https://altodocs.io/docs",
-  "privacyPolicyUrl": "https://altodocs.io/privacy",
-  "termsOfServiceUrl": "https://altodocs.io/terms"
+  ]
 }
