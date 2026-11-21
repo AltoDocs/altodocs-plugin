@@ -1,6 +1,6 @@
 {
   "endpoint": "https://app.altodocs.io/mcp",
-  "toolCount": 137,
+  "toolCount": 191,
   "scopes": [
     "documents:read",
     "documents:write",
@@ -28,27 +28,70 @@
       "select_choice",
       "add_python_cell",
       "update_python_cell",
-      "delete_python_cell"
+      "delete_python_cell",
+      "add_worksheet_picture"
     ],
     "altodocs-engineering-report": [
       "create_document",
       "read_document",
       "edit_document",
+      "list_reference_targets",
+      "read_document_schedule",
       "append_document_blocks",
       "insert_document_block",
       "update_document_text",
       "delete_document_block",
       "move_document_block",
+      "update_document_list",
+      "insert_load_view",
       "update_document_table_cell",
       "update_document_drawing",
+      "annotate_document_picture",
+      "fill_document_figure",
+      "replace_document_section",
+      "update_document_schedule",
       "update_document_beam",
-      "update_document_worksheet_expression"
+      "update_document_worksheet_expression",
+      "read_project_facts",
+      "update_project_facts",
+      "list_sbi_documents",
+      "create_sbi_document",
+      "list_load_files",
+      "create_load_file",
+      "set_action_type",
+      "delete_action_type",
+      "set_reaction_table",
+      "delete_reaction_table",
+      "read_loads",
+      "read_loads_guide",
+      "apply_load_preset",
+      "set_loads_basis",
+      "add_load_row",
+      "update_load_row",
+      "delete_load_row",
+      "set_load_action",
+      "add_load_spec",
+      "add_load_spec_rows",
+      "set_load_assignment",
+      "set_line_takedown",
+      "set_stability_takedown",
+      "set_load_takedown",
+      "update_load_spec",
+      "update_load_spec_row",
+      "delete_load_spec_row",
+      "delete_load_spec",
+      "delete_load_action",
+      "delete_load_assignment"
     ],
     "altodocs-markup": [
       "create_document",
       "read_document",
       "edit_document",
-      "preview_block"
+      "preview_block",
+      "annotate_document_picture",
+      "insert_document_picture",
+      "request_picture_upload",
+      "fill_document_figure"
     ],
     "altodocs-spreadsheets": [
       "create_spreadsheet",
@@ -60,7 +103,13 @@
       "add_spreadsheet_sheet",
       "rename_spreadsheet_sheet",
       "duplicate_spreadsheet_sheet",
-      "delete_spreadsheet_sheet"
+      "delete_spreadsheet_sheet",
+      "write_spreadsheet_table",
+      "format_spreadsheet_range",
+      "set_spreadsheet_layout",
+      "add_spreadsheet_dropdown",
+      "add_spreadsheet_color_rule",
+      "remove_spreadsheet_rules"
     ],
     "altodocs-cad": [
       "create_cad",
@@ -158,7 +207,14 @@
       "trash_document",
       "restore_document",
       "list_projects",
-      "list_documents"
+      "list_documents",
+      "request_file_upload",
+      "add_project_file",
+      "get_project_map",
+      "get_file_links",
+      "find_link_path",
+      "search_project",
+      "read_file_text"
     ],
     "altodocs-calculations": [
       "evaluate_calculation"
@@ -169,11 +225,35 @@
       "scope": "documents:write",
       "requires": []
     },
+    "add_load_row": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "add_load_spec": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "add_load_spec_rows": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "add_project_file": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "add_python_cell": {
       "scope": "documents:write",
       "requires": []
     },
     "add_region": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "add_spreadsheet_color_rule": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "add_spreadsheet_dropdown": {
       "scope": "documents:write",
       "requires": []
     },
@@ -189,7 +269,19 @@
       "scope": "documents:write",
       "requires": []
     },
+    "add_worksheet_picture": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "annotate_document_picture": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "append_document_blocks": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "apply_load_preset": {
       "scope": "documents:write",
       "requires": []
     },
@@ -513,12 +605,20 @@
       "scope": "documents:write",
       "requires": []
     },
+    "create_load_file": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "create_mathcanvas": {
       "scope": "documents:write",
       "requires": []
     },
     "create_project": {
       "scope": "projects:create",
+      "requires": []
+    },
+    "create_sbi_document": {
+      "scope": "documents:write",
       "requires": []
     },
     "create_spreadsheet": {
@@ -529,11 +629,39 @@
       "scope": "documents:write",
       "requires": []
     },
+    "delete_action_type": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "delete_document_block": {
       "scope": "documents:write",
       "requires": []
     },
+    "delete_load_action": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "delete_load_assignment": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "delete_load_row": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "delete_load_spec": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "delete_load_spec_row": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "delete_python_cell": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "delete_reaction_table": {
       "scope": "documents:write",
       "requires": []
     },
@@ -586,7 +714,23 @@
         "documents:read"
       ]
     },
+    "fill_document_figure": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "find_link_path": {
+      "scope": "documents:read",
+      "requires": []
+    },
+    "format_spreadsheet_range": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "get_document_info": {
+      "scope": "documents:read",
+      "requires": []
+    },
+    "get_file_links": {
       "scope": "documents:read",
       "requires": []
     },
@@ -594,7 +738,19 @@
       "scope": "documents:read",
       "requires": []
     },
+    "get_project_map": {
+      "scope": "documents:read",
+      "requires": []
+    },
     "insert_document_block": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "insert_document_picture": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "insert_load_view": {
       "scope": "documents:write",
       "requires": []
     },
@@ -602,7 +758,19 @@
       "scope": "documents:read",
       "requires": []
     },
+    "list_load_files": {
+      "scope": "documents:read",
+      "requires": []
+    },
     "list_projects": {
+      "scope": "documents:read",
+      "requires": []
+    },
+    "list_reference_targets": {
+      "scope": "documents:read",
+      "requires": []
+    },
+    "list_sbi_documents": {
       "scope": "documents:read",
       "requires": []
     },
@@ -634,6 +802,26 @@
       "scope": "documents:read",
       "requires": []
     },
+    "read_document_schedule": {
+      "scope": "documents:read",
+      "requires": []
+    },
+    "read_file_text": {
+      "scope": "documents:read",
+      "requires": []
+    },
+    "read_loads": {
+      "scope": "documents:read",
+      "requires": []
+    },
+    "read_loads_guide": {
+      "scope": "documents:read",
+      "requires": []
+    },
+    "read_project_facts": {
+      "scope": "documents:read",
+      "requires": []
+    },
     "read_spreadsheet": {
       "scope": "documents:read",
       "requires": []
@@ -643,6 +831,10 @@
       "requires": []
     },
     "remove_empty_folder": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "remove_spreadsheet_rules": {
       "scope": "documents:write",
       "requires": []
     },
@@ -666,15 +858,67 @@
       "scope": "documents:write",
       "requires": []
     },
+    "replace_document_section": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "request_file_upload": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "request_picture_upload": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "restore_document": {
       "scope": "documents:write",
+      "requires": []
+    },
+    "search_project": {
+      "scope": "documents:read",
       "requires": []
     },
     "select_choice": {
       "scope": "documents:write",
       "requires": []
     },
+    "set_action_type": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "set_line_takedown": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "set_load_action": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "set_load_assignment": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "set_load_takedown": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "set_loads_basis": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "set_reaction_table": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "set_spreadsheet_cells": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "set_spreadsheet_layout": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "set_stability_takedown": {
       "scope": "documents:write",
       "requires": []
     },
@@ -698,6 +942,14 @@
       "scope": "documents:write",
       "requires": []
     },
+    "update_document_list": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "update_document_schedule": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "update_document_table_cell": {
       "scope": "documents:write",
       "requires": []
@@ -710,11 +962,31 @@
       "scope": "documents:write",
       "requires": []
     },
+    "update_load_row": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "update_load_spec": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "update_load_spec_row": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "update_project_facts": {
+      "scope": "documents:write",
+      "requires": []
+    },
     "update_python_cell": {
       "scope": "documents:write",
       "requires": []
     },
     "update_region": {
+      "scope": "documents:write",
+      "requires": []
+    },
+    "write_spreadsheet_table": {
       "scope": "documents:write",
       "requires": []
     }

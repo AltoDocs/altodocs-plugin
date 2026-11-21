@@ -1,6 +1,6 @@
 ---
 name: altodocs-spreadsheets
-description: Create and edit saved native AltoDocs spreadsheet workbooks, tabs, cell values, formulas and supported styles from conversation data. Use when the requested result is a standalone spreadsheet, rather than a MathCanvas sheet or report table.
+description: Create and edit saved native AltoDocs spreadsheet workbooks, tabs, tables, cell values, formulas, formatting, layout, dropdowns and colour rules from conversation data, and read formula results. Use when the requested result is a standalone spreadsheet, rather than a MathCanvas sheet or report table.
 ---
 
 # Native spreadsheet files
@@ -23,18 +23,32 @@ existing file, read its saved content version and target range first. Omit
 `sheetId` only if there is exactly one tab.
 
 Cell/range coordinates are zero-based. Use ascending bounded ranges, not an
-entire million-row sheet; `read_spreadsheet` and clear ranges are limited to
-20,000 cells. A `set_cells` batch has at most 2,000 cells, and an edit batch at
-most 100 operations. Write either a value or a formula for a cell, never both;
-formulas start with `=`. Apply only supported schema styles. Preserve untouched
-cells and tabs. Use add/rename/duplicate/delete tab operations only as requested.
+entire million-row sheet; `read_spreadsheet`, clear and format ranges are
+limited to 20,000 cells. Write a table (imported data, a schedule, a list) with
+one `write_spreadsheet_table` call: rows of values, or CSV text, from a start
+cell. A string starting with `=` is a formula. Use `set_spreadsheet_cells`
+for a few scattered cells only (at most 2,000 per batch); an edit batch has at
+most 100 operations. Write either a value or a formula for a cell, never both.
+Preserve untouched cells and tabs. Use add/rename/duplicate/delete tab
+operations only as requested.
 
-**Formula source is saved, not recalculated by these connector tools.** A cached
-display value is not proof of a new result. Read back the exact cell values,
-formula strings and styles and state when recalculation has not been verified.
-Do not claim arbitrary Excel compatibility, charts, merged-cell authoring,
-pivots or filters. If separate calculation is useful, label it as a separate
-evaluation rather than a recalculated workbook result.
+Format after writing, a range at a time: `format_spreadsheet_range` (font,
+colours, number format, horizontal/vertical alignment, wrap, borders on each
+cell or only the outline), `set_spreadsheet_layout` (column widths and row
+heights in pixels, merge/unmerge, freeze the first rows/columns),
+`add_spreadsheet_dropdown` (a list of allowed values, e.g. Status:
+Planlagt / I gang / Afsluttet) and `add_spreadsheet_color_rule` (colour cells
+by text, number, blank or a formula). A rule answers with its `ruleId`;
+`read_spreadsheet` lists the sheet's layout, dropdowns and colour rules, and
+`remove_spreadsheet_rules` removes rules by id.
+
+**Formulas are saved, not calculated, when written.** To check results, read
+with `recalculate: true`: the app's own spreadsheet engine calculates the
+workbook and each formula cell comes back with its `result` (an error such as
+`#DIV/0!` included). The saved file is not changed by that read. A saved `v`
+of a formula cell is a cache and is not proof of a result. Report results from
+a recalculated read only. Do not claim arbitrary Excel compatibility, charts,
+pivots or filters.
 
 Use the latest `expectedVersion` for writes. Retry a lost response with identical
 UUID and payload; re-read after conflicts. After saving, verify the affected

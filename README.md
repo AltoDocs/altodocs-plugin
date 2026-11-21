@@ -12,7 +12,7 @@ projects it may access. Sign in through AltoDocs; never paste credentials into
 chat. Your Claude plan and workplace administrator must allow the plugin and
 connector. Use your own AltoDocs account, not reviewer credentials.
 
-> In my selected project, create a standalone MathCanvas named Load worksheet.
+> In my project Hall extension, create a standalone MathCanvas named Load worksheet.
 > Add q = 12 kN/m, L = 6 m and M = q*L^2/8, with a note stating assumptions.
 > Save it, read it back, evaluate M in kN m and give me the worksheet link.
 
@@ -51,7 +51,7 @@ An installed skill does not make a missing tool available. Check which tools
 Claude exposes before testing standalone sheets or CAD. Directory review,
 server capabilities and individual connection permissions are separate. The
 connector's directory review currently captures the original seven tools;
-the expanded native server has 137 scoped tools. Do not infer that every one
+the expanded native server has 191 scoped tools. Do not infer that every one
 is available through a particular directory installation.
 
 ## Limits and verification

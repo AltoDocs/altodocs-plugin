@@ -1,6 +1,6 @@
 ---
 name: altodocs-workspace
-description: Organise AltoDocs projects, folders and native files from chat. Use for discovering destinations, creating or copying projects, renaming or moving files, making copies, and recoverable Trash or restore operations.
+description: Organise AltoDocs projects, folders and native files from chat, add source PDFs to a project, and find and read across a project's files. Use for discovering destinations, searching a project or reading a stored PDF or drawing, adding a PDF the user gave you to a project, creating or copying projects, renaming or moving files, making copies, and recoverable Trash or restore operations.
 ---
 
 # Projects, folders and files
@@ -22,13 +22,43 @@ user requests a project. Require an identified/unambiguous organisation, new
 project/request UUIDs and a meaningful name. The tool needs `projects:create`
 consent and native organisation editing access. It adds only the newly created
 project to this connection; it does not grant access to existing projects.
-`duplicate_project` copies a selected project's live files/history/media with
+`duplicate_project` copies a project's live files/history/media with
 creator-only sharing, not its old memberships. Keep a clearly requested copy
 distinct from the original. Verify the resulting project with `get_project`.
 
 An older grant may lack project-creation permission. Use the host's native
 reconnection/consent flow when needed; token refresh cannot broaden permissions.
 Never request a password/token in chat or silently grant another project.
+
+## Reading across a project
+
+When a request concerns a whole project or more than one file, read
+`get_project_map` first: one answer with every file, its headings and which
+file uses which. `search_project` finds words across all files at once,
+including the pages of stored PDFs, the texts, layers and block names of
+drawings and the storeys and element names of IFC models. `read_file_text`
+reads one file on from a hit, a PDF page by page. Before changing a Load file,
+a spreadsheet or Project 271, `get_file_links` shows which reports and
+calculations follow from it; `find_link_path` shows how two files are connected.
+
+These read the saved files; nothing is guessed. When you state something found
+in a PDF, name the file and the page. A stored file whose map entry says its
+contents are not read yet is known by its title only: say so, and do not
+describe it. All five answer only for a project selected for this connection.
+
+## Adding a source PDF to a project
+
+A PDF the user gave you as a file (a specification, an export, a report the
+documents are built from) belongs in the project beside those documents. Call
+`request_file_upload`, send the file from your workspace with one HTTP PUT to
+the returned `uploadUrl` (the answer includes the command), then
+`add_project_file` with its `uploadId`, a new `documentId` UUID, the
+project, a title and optionally a folder. Its text is read at once:
+`search_project` and `read_file_text` find it in the same conversation. A
+scanned PDF without text is kept but has nothing to search; the answer says
+so. Never retype a file's contents as text to get it into a project. If your
+workspace cannot reach the upload address, ask the user to drag the file into
+the project in AltoDocs.
 
 ## Versioned folder/project changes
 

@@ -143,6 +143,14 @@ requested; file rename/move/copy uses the workspace skill's separate version
 counters. On a transport failure retry the identical request UUID and payload;
 on conflict read again and reconsider, never blindly overwrite.
 
+A picture (a photo, a screenshot, a detail from a drawing) is placed on a
+worksheet with `add_worksheet_picture`: from a file in your own workspace sent
+with `request_picture_upload` (source `uploadId`), from a public https address,
+or from a report block that shows one. Read the worksheet first and
+give it a position in free space beside the calculation it belongs to; it keeps
+its shape and is fitted into the width or height you give. Marks on it are
+drawn in AltoDocs. Do not replace a picture the user meant with a description.
+
 If the service rate-limits a long workflow, honour its Retry-After guidance and
 retry the identical pending write. Do not change IDs, create another file or
 hammer the service to evade the limit. If the host cannot wait/retry, identify
