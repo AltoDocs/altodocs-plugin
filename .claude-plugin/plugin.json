@@ -7,10 +7,14 @@
     "name": "AltoDocs",
     "url": "https://altodocs.io"
   },
-  "homepage": "https://altodocs.io/integrations",
+  "homepage": "https://altodocs.io/integrations/",
   "repository": "https://github.com/AltoDocs/altodocs-plugin",
   "license": "LicenseRef-AltoDocs-Plugin",
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://altodocs.io/docs/#section-mcp",
+  "supportUrl": "https://altodocs.io/docs/",
   "privacyPolicyUrl": "https://altodocs.io/privacy/",
+  "termsOfServiceUrl": "https://altodocs.io/terms/",
   "keywords": [
     "engineering",
     "mathcanvas",
