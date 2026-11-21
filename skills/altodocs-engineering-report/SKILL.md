@@ -119,123 +119,13 @@ the same document ID and link unless the user requests a separate copy. If a
 save or read-back failed, report that state plainly rather than inventing a link.
 The user can keep working in chat and open the editable document when useful.
 
-## Structural documentation from Project 271 (SBi 271)
+## Structural documentation and loads
 
-A Danish structural project is documented after SBi-anvisning 271: A1
-Konstruktionsgrundlag, A2 Statiske beregninger, A3 drawings and models, B1
-Statisk projektredegørelse, B2 control plans and B3 control reports. In
-AltoDocs the project's facts are kept once, in its Project 271, and every such
-document shows them through live tables. Use these tools when they are
-available in the conversation:
-
-1. `list_projects` may name the project the user has open in the app
-   (`openProject`). "This project", or no project named, means that one. Say
-   which project you are working in.
-2. `list_sbi_documents` lists every document the project's phase asks for,
-   which are created (with their links) and which are not, and the arguments
-   that create each. Answer "what is missing" from it, and read it before
-   creating anything.
-3. `read_project_facts` gives the facts and the values the code derives from them
-   (consequence, structural and execution class, K_FI, document numbers). Quote
-   those; never derive a class yourself. Record a fact the user states with
-   `update_project_facts`; read the section first for its exact fields (a read
-   with `section` returns only that part of the form). To add, change or
-   remove one row of a list, use `rows`: the other rows stay as they are. A
-   list sent in `patch` replaces the whole saved list. Never enter a typical
-   value.
-4. `create_sbi_document` creates the document from its template: the SBi 271
-   headings, the project's own naming and folder, and a place in Project 271's
-   document list. Its tables of project facts, materials and loads are live:
-   they print Project 271, the material system and the Load file as they stand
-   whenever the document is opened. Never type such a table, or a fact from
-   one, into the document. `read_document` shows what each live table prints
-   now, the Project 271 tables and the load tables alike.
-5. If the project already holds the document, the call is refused with that
-   document's title and link. Tell the user; create a second one (`again`) only
-   when they ask for a new one.
-6. A1.1 and B1 are mostly live tables, so fill Project 271 before writing.
-   `read_project_facts` lists each section with `filled` of `fields`; read the
-   sections with few filled for their fields and choices, and record what the
-   user and the project's own files state (`search_project` and
-   `read_file_text` read stored PDFs; name the file and page). Take the choice
-   that is true for this project and leave a field empty when nobody has
-   stated the fact. When two files disagree, ask which holds.
-7. A project can hold more than one Project 271 file. Reading uses the project's
-   own and lists them all; before a change or a new document, ask the user
-   which one, naming them by title. Never show an identifier.
-8. Every fact rests on a document of the project. Register each in Project
-   271's source register with its file (`fil`: the project file's id), revision
-   and date. An email is not a source: a fact only an email states stays open
-   until a document states it, so ask for the document. A Word file is added as
-   the PDF its author issued; never convert one yourself.
-9. A special action (a crane, a tram, an impact on a buffer stop) is a row of
-   Project 271's special actions with its source and status. A decision still
-   owed on it is an open question of its own (`spoergsmaal`), which stays an
-   open item until it is decided. A1.1 prints each special action as its own
-   section, so never write its facts as text in the report. In the Load file,
-   the action type of a special action names it (`set_action_type` with
-   `specialLoadId`); its status and source then follow Project 271, so never
-   set them on the type.
-10. Show the evidence as a figure taken from the source document: a picture
-   block whose source is `{fileId, page, area}` of the stored PDF, with
-   `sourceId` (the register entry) and `specialLoadId`. The figure then prints
-   its source line from the register, and the special action's section lists
-   it. Never type a "Kilde:" line in a caption.
-11. `read_project_facts` lists contradictions among its open items (kind
-   `conflict`): two places that state different values. Ask which holds; do not
-   pick one yourself.
-
-After creating, report plainly: the document's name and link, the Project 271
-and Load file it reads, the facts still missing (they print as `AFVENTER`) and
-how many sections are left to write. Ask for the missing facts in one message.
-A freshly created document is a start, never a finished one; declarations and
-signatures stay with the engineer. Write a section only when asked, from this
-project's facts and the standards. Lead into each live table with one short
-sentence saying what it shows; where a sentence or table names something a
-later section explains (a special load, a load plan), refer to that heading
-with a reference, never a typed number. After the section's last table, write
-only what the tables do not hold, never a table row again as text, and do not
-type a number in front of a heading: the app numbers them.
-
-## Loads and the load takedown (Load file)
-
-A project's loads live in its Load file, a file of its own that the documents
-read through live tables. Use these tools when they are available in the
-conversation; each one except the first two names the file with `documentId`
-and takes its own input in `args`.
-
-1. `list_load_files` finds the project's Load file. A project normally keeps
-   one; use `create_load_file` only when it has none.
-2. `read_loads` returns the basis, the defined loads with their derived
-   values, wind, snow and the other actions, the combinations, the load
-   specifications with their sums, and every assignment and takedown with its
-   result. Quote those numbers; never recompute or invent a load value.
-3. `read_loads_guide` is the working guide of the load system. Read it once
-   before building more than a single row.
-4. Build in this order: the basis (`set_loads_basis`), the defined loads
-   (`add_load_row`, `update_load_row`, `delete_load_row`) and the actions
-   (`set_load_action`, `delete_load_action`), a load specification per surface
-   (`add_load_spec`, `add_load_spec_rows`, `update_load_spec`,
-   `update_load_spec_row`, `delete_load_spec_row`, `delete_load_spec`), then
-   the load path: `set_load_assignment` for a beam, `set_load_takedown` for a
-   frame, `set_line_takedown` for a wall line or a column summed storey by
-   storey, `set_stability_takedown` for the building's horizontal loads to its
-   stabilising walls. `delete_load_assignment` removes one. A typical situation
-   starts faster from `apply_load_preset`; say which of its values the user
-   must review.
-5. Every length, height, span, position, wall size and load that is not in
-   the file comes from the user or their documents. Ask; never assume a typical
-   value. `set_line_takedown` and `set_stability_takedown` replace the whole
-   takedown: read it first and send back everything you do not change.
-6. An answer with `saved: true` is saved; with `saved: false` nothing changed
-   and `result.error` says why. Then `read_loads` once and report the
-   governing values, each wall's utilisation and any problems it lists. A Load
-   file has no version check: make one change at a time and read back.
-
-These tools do not change Project 271. The consequence class, the Load file a
-project uses and each special action's status and source are recorded there,
-and the Load file follows them. `insert_load_view` places a load table in a
-report; applying loads to a Beam or Frame block is done in the app.
+Project facts (Project 271), the Load file, the load takedown, member checks and
+the documents after SBi 271 (A1 basis, A2 calculations, A3 drawings, B1 project
+statement, B2 control plans, B3 control reports) follow the
+`altodocs-structural-documentation` skill. Load it before any of that work.
+This skill covers the report and its blocks themselves.
 
 ## When something got in the way
 

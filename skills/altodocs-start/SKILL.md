@@ -25,6 +25,13 @@ to proceed, not to demand another generic confirmation.
 
 Route to the focused workflow:
 
+- **Structural documentation:** a structural project from its facts to its
+  documents. Project 271 (the project's facts and control panel), the Load
+  file, load takedown and member checks, and the documents after SBi 271 (A1
+  basis, A2 calculations, A3 drawings, B1, B2, B3). Use the
+  `altodocs-structural-documentation` skill, also for "what does this project
+  still lack". SBi 271 is the Danish method; explain each document in plain
+  words for users who do not know it.
 - **Standalone MathCanvas:** native calculation file, inputs/formulas/units,
   saved evaluation, notes/layout, follow-up edits to the same live sheet.
 - **Engineering reports:** document text, tables, embedded worksheets and

@@ -51,7 +51,9 @@
       "replace_document_section",
       "update_document_schedule",
       "update_document_beam",
-      "update_document_worksheet_expression",
+      "update_document_worksheet_expression"
+    ],
+    "altodocs-structural-documentation": [
       "read_project_facts",
       "update_project_facts",
       "list_sbi_documents",
