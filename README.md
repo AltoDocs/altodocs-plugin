@@ -77,7 +77,7 @@ or approve the plugin before members connect their own accounts.
 
 - [Documentation](https://altodocs.io/docs#section-mcp)
 - [Setup](https://altodocs.io/integrations)
-- [Privacy policy](https://altodocs.io/privacy)
+- [Privacy policy](https://altodocs.io/privacy/): how AltoDocs handles privacy and your data
 - [Terms of service](https://altodocs.io/terms)
 - [Support resources](https://altodocs.io/docs) or email contact@altodocs.io
 
